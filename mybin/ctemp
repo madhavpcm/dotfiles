@@ -1,0 +1,29 @@
+#!/bin/bash
+shopt -s nullglob
+args=("$@")
+# create an array with all the filer/dir inside ~/myDir
+template_directory=`ls ~/Dev/CompetitiveProgramming/CPP/templates/*.cpp | xargs -n 2 basename`
+arr=$(ls  ~/Dev/CompetitiveProgramming/CPP/templates* | xargs -n 2 basename);
+declare -r STR="/home/madhav/Dev/CompetitiveProgramming/CPP/templates/";
+declare -i flag=0;
+if [ ${#args[@]} -ne 2 ];
+	then
+		echo "Error : Usage >$ ctemp <template_name> <file>"
+		exit;
+fi
+# iterate through array using a counter
+for eachfile in $template_directory
+do 
+    #printf "${args[1]}"" "$eachfile"\n"
+    if [ "${args[1]}" == "$eachfile" ]
+    then
+        printf "entered"
+        cat "$STR$eachfile" >> ${args[1]}
+        flag=1
+    fi
+done
+    
+if [ $flag == 0 ]; then
+    echo "Error: Template $1.cpp not found in $path . " &
+fi
+exit 0

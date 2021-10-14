@@ -1,0 +1,12 @@
+#!/bin/bash
+assignment=$1
+for filename in *.*; do
+    no="${filename%.*}"
+    extension="${filename##*.}"
+    if [ $extension = "c" ] || [ $extension = "py" ] || [ $extension = "cpp" ]; then
+        if [ ${#no} -le 3 ]; then
+            mv "$filename" "ASSG${assignment}_B200738CS_CMMADHAV_${no}.${extension}"
+        fi
+    fi
+done
+7z a "ASSG${assignment}_B200738CS_CMMADHAV.zip" "ASSG*_B200738CS_CMMADHAV_*.*"

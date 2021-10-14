@@ -1,0 +1,3 @@
+#!/bin/bash
+ryzenadj --tctl-temp=85 &
+rmmod pcspkr 
