@@ -60,7 +60,7 @@ font-2 = SauceCodePro Nerd Font:fontformat=truetype:size=9:antialias=true;2
 font-3 = Noto Symbols2:style=Regular:size=10;2
 font-4 = icomoon\-feather:style=Regular:size=10;2
 modules-left = i3 arrow cputemp arrow0 cpu arrow1 amd arrow0 memory arrow2 arrow3
-modules-center = xwindow
+modules-center = xwindow mpd
 modules-right = arrow4 arrow5 wlan arrow6 filesystem arrow7 mic-volume arrow6 pulseaudio arrow8 date arrow9 battery 
 tray-position = right
 tray-padding = 2
@@ -284,13 +284,13 @@ label-separator-background = #7506a1
 
 [module/mpd]
 type = internal/mpd
-format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>
+format-online = <label-song> <icon-prev> <icon-stop> <toggle> <icon-next>
 
-icon-prev = 
-icon-stop = 
-icon-play = 
-icon-pause = 
-icon-next = 
+icon-prev =
+icon-stop =
+icon-play =
+icon-pause =
+icon-next =
 
 label-song-maxlen = 25
 label-song-ellipsis = true

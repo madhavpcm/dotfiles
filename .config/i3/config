@@ -69,6 +69,9 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 bindsym XF86MonBrightnessUp exec light -A 1 # increase screen brightness
 bindsym XF86MonBrightnessDown exec light -U 1 # decrease screen brightness
 bindsym Print exec flameshot gui
+bindsym $mod+F3 exec ~/.config/rofi/applets/applets/apps.sh
+bindsym $mod+end exec ~/.config/rofi/applets/applets/mpd.sh
+bindsym ctrl+F3 exec ~/.config/rofi/applets/applets/network.sh
 #exec pkill "ksplashqml"
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
