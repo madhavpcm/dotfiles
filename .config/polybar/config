@@ -59,9 +59,9 @@ font-1 = SauceCodePro Nerd Font:fontformat=truetype:size=14:antialias=true;4
 font-2 = SauceCodePro Nerd Font:fontformat=truetype:size=9:antialias=true;2
 font-3 = Noto Symbols2:style=Regular:size=10;2
 font-4 = icomoon\-feather:style=Regular:size=10;2
-modules-left = i3 arrow cputemp arrow0 cpu arrow1 amd arrow0 memory arrow2 arrow3
+modules-left = arrow12 i3 arrow cputemp arrow0 cpu arrow1 amd arrow0 memory arrow2 arrow3
 modules-center = xwindow mpd
-modules-right = arrow4 arrow5 wlan arrow6 filesystem arrow7 mic-volume arrow6 pulseaudio arrow8 date arrow9 battery 
+modules-right = arrow4 arrow5 wlan arrow6 filesystem arrow7 mic-volume arrow6 pulseaudio arrow8 date arrow9 battery arrow11 arrow10
 tray-position = right
 tray-padding = 2
 tray-background = #222222
@@ -168,10 +168,27 @@ content-background = #0a6cf5
 [module/arrow10]
 ; trans to purple
 type = custom/text
-content = " "
+content = ""
 content-font = 2
-content-foreground = #ff0000
-; MIDDLE ---------
+content-foreground = #777777
+content-background = ${colors.background}
+
+[module/arrow11]
+; trans to purple
+type = custom/text
+content = ""
+content-font = 2
+content-foreground = #777777
+content-background = #ff0000
+
+[module/manjaro]
+; trans to purple
+type = custom/text
+content = ""
+content-font = 2
+content-foreground = #777777
+conent-background = ${colors.background}
+; MIDDLE ---------
 
 [module/middle0]
 type = custom/text
@@ -493,7 +510,7 @@ full-at = 100
 format-charging = <animation-charging> <label-charging>
 format-charging-background= #ff0000
 label-discharging-font=1
-format-discharging = <animation-discharging> <label-discharging>
+format-discharging = <animation-discharging> <label-discharging>
 format-discharging-background= #ff0000
 format-full-prefix = " "
 format-full-prefix-foreground = ${colors.foreground-alt}

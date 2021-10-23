@@ -72,6 +72,7 @@ bindsym Print exec flameshot gui
 bindsym $mod+F3 exec ~/.config/rofi/applets/applets/apps.sh
 bindsym $mod+end exec ~/.config/rofi/applets/applets/mpd.sh
 bindsym ctrl+F3 exec ~/.config/rofi/applets/applets/network.sh
+bindsym ctrl+F4 exec ~/.config/rofi/applets/applets/powermenu.sh
 #exec pkill "ksplashqml"
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
