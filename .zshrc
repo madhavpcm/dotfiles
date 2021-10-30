@@ -7,11 +7,12 @@ fi
 
 # If you come from bash you might have to change your $PATH.
 #shell apps
-source "/home/madhavpcm/auth.zsh"
+#source "/home/madhavpcm/auth.zsh"
 eval "$(zoxide init zsh)"
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/madhavpcm/.oh-my-zsh"
+export QT_QPA_PLATFORMTHEME='gnome'
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -78,7 +79,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-z zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git  zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
@@ -87,7 +88,7 @@ source $ZSH/oh-my-zsh.sh /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-synt
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
-
+export PATH="$HOME/intelFPGA_lite/20.1/modelsim_ase/linuxaloem:$HOME/intelFPGA_lite/20.1/quartus/bin:$HOME/mybin:$PATH"
 # You may need to manually set your language environment
  export LANG=en_US.UTF-8
 
@@ -126,3 +127,4 @@ PERL_MB_OPT="--install_base \"/home/madhavpcm/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/home/madhavpcm/perl5"; export PERL_MM_OPT;
 alias config='/usr/bin/git --git-dir=/home/madhavpcm/.cfg/ --work-tree=/home/madhavpcm/'
 bindkey -v
+alias brave=brave-browser

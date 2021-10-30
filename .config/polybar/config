@@ -55,13 +55,13 @@ module-margin-left = 0
 module-margin-right =0 
 
 font-0 = SF Mono:Semibold:pixelsize=9;1
-font-1 = SauceCodePro Nerd Font:fontformat=truetype:size=14:antialias=true;4
-font-2 = SauceCodePro Nerd Font:fontformat=truetype:size=9:antialias=true;2
-font-3 = Noto Symbols2:style=Regular:size=10;2
+font-1 = SourceCodePro:size=14:antialias=true;4
+font-2 = SourceCodePro:size=9:antialias=true;2
+font-3 = NotoSansMono Nerd Font:style=Regular:size=10;2
 font-4 = icomoon\-feather:style=Regular:size=10;2
 modules-left = arrow12 i3 arrow cputemp arrow0 cpu arrow1 amd arrow0 memory arrow2 arrow3
 modules-center = xwindow mpd
-modules-right = arrow4 arrow5 wlan arrow6 filesystem arrow7 mic-volume arrow6 pulseaudio arrow8 date arrow9 battery arrow11 arrow10
+modules-right = arrow4 arrow5 eth arrow6 filesystem arrow7 mic-volume arrow6 pulseaudio arrow8 date arrow9 battery arrow11 arrow10
 tray-position = right
 tray-padding = 2
 tray-background = #222222
@@ -184,7 +184,7 @@ content-background = #ff0000
 [module/manjaro]
 ; trans to purple
 type = custom/text
-content = ""
+content = ""
 content-font = 2
 content-foreground = #777777
 conent-background = ${colors.background}
@@ -399,18 +399,18 @@ ramp-signal-foreground = ${colors.foreground-alt}
 
 [module/eth]
 type = internal/network
-interface = enp5s0 
-interval = 3.0
+interface = enp3s0 
+interval = 1.1 
 
-format-connected-underline = #55aa55
-format-connected-prefix = " "
-format-connected-prefix-foreground = ${colors.foreground-alt}
-label-connected = %local_ip%:%downspeed%
+format-connected-prefix = ""
+label-connected = %ifname%:%downspeed%
 
 format-disconnected = <label-disconnected>
-format-disconnected-underline = ${self.format-connected-underline}
-label-disconnected = %ifname% disconnected
-label-disconnected-foreground = ${colors.foreground-alt}
+label-disconnected = %ifname% 
+label-disconnected-foreground = #ff0000
+label-disconnected-background = #004d0e 
+label-connected-background = #004d0e 
+format-connected-prefix-background = #004d0e 
 
 [module/mic-volume]
 type = custom/script
@@ -447,9 +447,9 @@ type = internal/pulseaudio
 
 format-volume = <label-volume> 
 label-volume-font=1
-label-volume = %percentage%%
+label-volume =  %percentage%%
 ;
-label-muted =  
+label-muted = 
 label-muted-foreground = #ff0000
 
 label-muted-background = #177564
