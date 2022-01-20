@@ -1,0 +1,7 @@
+XTerm*renderFont: true
+XTerm*faceName: SF Mono
+XTerm*faceSize: 10
+
+UXTerm*renderFont: true
+UXTerm*faceName: SF Mono
+UXTerm*faceSize: 10

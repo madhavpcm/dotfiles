@@ -1,0 +1,7 @@
+file=$1
+echo $file
+filename="${file%.*}"
+
+echo $filename
+nasm -f elf64 -o $filename.o $file
+ld -o $filename $filename.o 
