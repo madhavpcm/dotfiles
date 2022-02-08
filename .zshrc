@@ -126,3 +126,5 @@ PERL_MB_OPT="--install_base \"/home/madhavpcm/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/home/madhavpcm/perl5"; export PERL_MM_OPT;
 alias config='/usr/bin/git --git-dir=/home/madhavpcm/.cfg/ --work-tree=/home/madhavpcm/'
 bindkey -v
+MANGOHUD_CONFIGFILE="~/.config/mangohud/mangohud.conf"
+

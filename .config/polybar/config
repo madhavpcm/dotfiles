@@ -61,7 +61,7 @@ font-3 = Noto Symbols2:style=Regular:size=10;2
 font-4 = icomoon\-feather:style=Regular:size=10;2
 modules-left = arrow12 i3 arrow cputemp arrow0 cpu arrow1 amd arrow0 memory arrow2 arrow3
 modules-center = xwindow mpd
-modules-right = arrow4 arrow5 wlan arrow6 filesystem arrow7 mic-volume arrow6 pulseaudio arrow8 date arrow9 battery arrow11 arrow10
+modules-right = arrow4 arrow5 eth arrow7 wlan arrow6 filesystem arrow7 mic-volume arrow6 pulseaudio arrow8 date arrow9 battery arrow11 arrow10
 tray-position = right
 tray-padding = 2
 tray-background = #222222
@@ -133,7 +133,7 @@ content-foreground = #777777
 type = custom/text
 content = ""
 content-font = 2
-content-foreground = #004d0e
+content-foreground = #177564
 content-background = #777777
 [module/arrow6]
 ; trans to purple
@@ -168,7 +168,7 @@ content-background = #0a6cf5
 [module/arrow10]
 ; trans to purple
 type = custom/text
-content = ""
+content = ""
 content-font = 2
 content-foreground = #777777
 content-background = ${colors.background}
@@ -383,6 +383,15 @@ format-connected-prefix = " "
 label-connected =  %essid%:%downspeed%
 label-connected-background=#004d0e
 format-connected-prefix-background=#004d0e
+format-connected-underline = #55aa55
+format-disconnected-font =3
+format-disconnected-prefix =
+format-disconnected-prefix-font =2
+format-disconnected = <label-disconnected>
+format-disconnected-underline = #940000
+label-disconnected = %ifname%
+label-disconnected-foreground = #ff6669
+label-disconnected-background = #004d0e
 
 label-ic = 
 ;format-disconnected = <label-disconnected>
@@ -406,11 +415,13 @@ format-connected-underline = #55aa55
 format-connected-prefix = " "
 format-connected-prefix-foreground = ${colors.foreground-alt}
 label-connected = %local_ip%:%downspeed%
-
+format-connected-background= #177564
+format-disconnected-font =3
 format-disconnected = <label-disconnected>
-format-disconnected-underline = ${self.format-connected-underline}
-label-disconnected = %ifname% disconnected
-label-disconnected-foreground = ${colors.foreground-alt}
+format-disconnected-underline = #940000
+label-disconnected = %ifname%  
+label-disconnected-foreground = #ff6669
+label-disconnected-background = #177564
 
 [module/mic-volume]
 type = custom/script
@@ -418,12 +429,12 @@ interval = 0.4
 format =  <label>
 format-font = 1
 label-background=#004d0e
-exec = bash ~/.config/polybar/modules/mic-volume/mic-volume.sh show-vol 1
+exec = bash ~/.config/polybar/modules/mic-volume/mic-volume.sh show-vol 2
 ; 
 ; Control actions (using pactl)
-click-left = zsh ~/.config/polybar/modules/mic-volume/mic-volume.sh mute-vol 1
-scroll-up = zsh ~/.config/polybar/modules/mic-volume/mic-volume.sh inc-vol 1
-scroll-down = zsh ~/.config/polybar/modules/mic-volume/mic-volume.sh dec-vol 1
+click-left = zsh ~/.config/polybar/modules/mic-volume/mic-volume.sh mute-vol 2
+scroll-up = zsh ~/.config/polybar/modules/mic-volume/mic-volume.sh inc-vol 2
+scroll-down = zsh ~/.config/polybar/modules/mic-volume/mic-volume.sh dec-vol 2
 
 [module/date]
 type = internal/date
@@ -512,7 +523,8 @@ format-charging-background= #ff0000
 label-discharging-font=1
 format-discharging = <animation-discharging> <label-discharging>
 format-discharging-background= #ff0000
-format-full-prefix = " "
+format-full-background= #ff0000
+format-full-prefix = ">"
 format-full-prefix-foreground = ${colors.foreground-alt}
 format-full-underline = ${self.format-charging-underline}
 

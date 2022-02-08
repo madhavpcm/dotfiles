@@ -3,5 +3,5 @@ echo $file
 filename="${file%.*}"
 
 echo $filename
-nasm -f elf64 -o $filename.o $file
+nasm -f elf64 -g -F dwarf -o $filename.o $file
 ld -o $filename $filename.o 
