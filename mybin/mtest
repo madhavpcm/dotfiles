@@ -1,0 +1,22 @@
+#!/bin/sh
+
+prg=$1
+dr=$2
+ind=0
+#fn() { declare local s="${1%%.*}"; echo "${s##*[!0-9]}"; }
+GREEN='\033[0;32m'
+RED='\033[0;31m'
+NOCOLOR='\033[0m'
+for IN in $(ls ${dr} | grep in); do
+    ind="${IN%%.*}"
+    ind="${ind##*[!0-9]}"
+    echo -e "${NOCOLOR}INPUT FILE : $dr/$IN"
+    echo -e "${NOCOLOR}TEST FILE : $dr/out$ind.txt"
+    ./$1 < "$dr/$IN" > "$dr/myout${ind}.test"
+    if [[ $(diff --color -Z "$dr/myout${ind}.test" "$dr/out${ind}.txt") ]]; then
+        echo -e "${RED}TEST $ind FAILED"
+        diff --color -Z "$dr/myout${ind}.test" "$dr/out${ind}.txt"
+    else
+        echo -e "${GREEN}TEST $ind PASSED"
+    fi
+done
