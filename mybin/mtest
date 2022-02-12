@@ -1,7 +1,7 @@
 #!/bin/sh
 
-prg=$1
-dr=$2
+prg=$1 #location of executable file, goto dir of exec file when running script
+dr=$2 #location of direcotry with in*.txt and out*.txt
 ind=0
 #fn() { declare local s="${1%%.*}"; echo "${s##*[!0-9]}"; }
 GREEN='\033[0;32m'
