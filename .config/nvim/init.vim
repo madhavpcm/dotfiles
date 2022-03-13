@@ -39,6 +39,7 @@ set showcmd
 set wildmenu
 set hidden
 
+source $HOME/.config/nvim/plug/asmx86.vim
 source $HOME/.config/nvim/plug/airline.vim
 source $HOME/.config/nvim/plug/snippets.vim
 source $HOME/.config/nvim/plug/tmux-nav.vim
@@ -61,3 +62,9 @@ set shortmess+=c
 nnoremap <leader>sv source $MYVIMRC<CR>
 " Always show the signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved.
+
+
+augroup nasm_ft
+    au!
+    autocmd BufNewFile,BufRead *.asm set ft=nasm
+augroup END

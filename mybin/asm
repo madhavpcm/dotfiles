@@ -1,7 +1,9 @@
 file=$1
+mode=$2
 echo $file
 filename="${file%.*}"
 
 echo $filename
-nasm -f elf64 -g -F dwarf -o $filename.o $file
-ld -o $filename $filename.o 
+nasm -f elf$mode -g -F dwarf -o $filename.o $file
+ld $filename.o -o $filename
+#gcc -m$mode -static -o $filename $filename.o  for scanf and printf builds
