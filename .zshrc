@@ -127,4 +127,6 @@ PERL_MM_OPT="INSTALL_BASE=/home/madhavpcm/perl5"; export PERL_MM_OPT;
 alias config='/usr/bin/git --git-dir=/home/madhavpcm/.cfg/ --work-tree=/home/madhavpcm/'
 bindkey -v
 MANGOHUD_CONFIGFILE="~/.config/mangohud/mangohud.conf"
+export IFNAME="wlp6s0"
+export CON_NAME="kawahotspot"
 

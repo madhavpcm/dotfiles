@@ -1,0 +1,9 @@
+#password
+nmcli con modify $CON_NAME wifi-sec.key-mgmt wpa-psk
+nmcli con modify $CON_NAME wifi-sec.psk "qqqq9000"
+#hotspot settings
+nmcli con modify $CON_NAME 802-11-wireless.mode ap 802-11-wireless.band bg ipv4.method shared
+#up hotspot
+nmcli con up $CON_NAME
+#down hotspot
+nmcli con down $CON_NAME
