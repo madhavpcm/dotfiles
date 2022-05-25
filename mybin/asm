@@ -1,9 +1,16 @@
 file=$1
 mode=$2
+g=$3
 echo $file
 filename="${file%.*}"
 
 echo $filename
 nasm -f elf$mode -g -F dwarf -o $filename.o $file
-ld $filename.o -o $filename
-#gcc -m$mode -static -o $filename $filename.o  for scanf and printf builds
+if [ $mode -eq "64" ]
+then
+    ld $filename.o -o $filename
+else
+    ld -m elf_i386  $filename.o -o $filename
+fi
+#gcc -m$mode -static -o $filename $filename.o  
+#for scanf and printf builds
