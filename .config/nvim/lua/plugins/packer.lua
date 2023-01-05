@@ -1,4 +1,3 @@
-local install_path = vim.fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
 local install_plugins = false
 
 local ensure_packer = function()
@@ -33,7 +32,7 @@ require("packer").startup(function(use)
   }
 
   -- Completions
-  use { "hrsh7th/nvim-cmp" }
+  use { "hrsh7th/nvim-cmp", config = 'require("plugins.nvim-cmp")' }
   use { "hrsh7th/cmp-path" }
   use { "hrsh7th/cmp-cmdline" }
   use { "hrsh7th/cmp-buffer" }
@@ -50,24 +49,17 @@ require("packer").startup(function(use)
   -- Code/Workflow
   --
 
+  use { "lukas-reineke/indent-blankline.nvim", config = 'require("plugins.indentline")', event = "BufWinEnter" }
   use {
     "norcalli/nvim-colorizer.lua",
     event = "BufRead",
-    config = function()
-      require("colorizer").setup()
-    end,
   }
   use { "lewis6991/gitsigns.nvim", requires = { "nvim-lua/plenary.nvim" }, config = 'require("plugins.gitsigns")' }
   use { "simrat39/rust-tools.nvim" }
-  use { "windwp/nvim-autopairs" }
+  use { "windwp/nvim-autopairs", config = 'require("plugins.autopairs")' }
   use { "sakhnik/nvim-gdb" }
   use { "L3MON4D3/LuaSnip" }
-  use {
-    "folke/which-key.nvim",
-    config = function()
-      require("which-key").setup {}
-    end,
-  }
+  use { "folke/which-key.nvim", config = 'require("plugins.which-key")' }
   use {
     "nvim-telescope/telescope.nvim",
     tag = "0.1.0",
@@ -84,9 +76,8 @@ require("packer").startup(function(use)
     config = 'require("plugins.nvim-tree")',
     cmd = "NvimTreeToggle",
   }
-  use { "RRethy/nvim-base16" }
-  use { "Mofiqul/vscode.nvim" }
-  use { "yamatsum/nvim-cursorline" }
+  use { "Mofiqul/vscode.nvim", config = 'require("plugins.color")' }
+  use { "yamatsum/nvim-cursorline", config = 'require("plugins.cursorline")' }
   use {
     "utilyre/barbecue.nvim",
     requires = {

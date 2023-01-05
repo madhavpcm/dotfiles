@@ -21,6 +21,7 @@ vim.keymap.set("n", "<C-n>", "<cmd>NvimTreeToggle<cr>", { desc = "Toggle Tree" }
 vim.keymap.set({ "n", "x" }, "x", '"_x')
 vim.keymap.set({ "n", "v" }, "<C-c>", '"*y')
 vim.keymap.set({ "n", "v" }, "<C-p>", '"*p')
+vim.keymap.set({ "v" }, "p", '"_dP')
 
 -- Set barbar's options
 local map = vim.api.nvim_set_keymap
