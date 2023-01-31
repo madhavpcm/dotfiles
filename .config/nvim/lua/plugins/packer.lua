@@ -89,6 +89,7 @@ require("packer").startup(function(use)
     event = "BufWinEnter",
     config = "require('plugins.barbecue')",
   }
+  use "itsfarseen/expos-vim-plugins"
   use { "glepnir/dashboard-nvim", event = "BufWinEnter", config = 'require("plugins.dashboard")' }
   use {
     "nvim-lualine/lualine.nvim",

@@ -10,4 +10,4 @@ by NIT🄯
 "                                                               
 
 
-cd ~/myexpos/xfs-interface/ && ./xfs-interface; cd -
+cd ~/myexpos/xfs-interface/ && ./xfs-interface ; cd -

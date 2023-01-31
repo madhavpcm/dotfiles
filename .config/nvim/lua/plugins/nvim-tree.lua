@@ -32,4 +32,8 @@ require("nvim-tree").setup {
   filters = {
     dotfiles = true,
   },
+  diagnostics = {
+    enable = true,
+    show_on_dirs = true,
+  },
 }

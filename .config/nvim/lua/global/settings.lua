@@ -8,6 +8,8 @@ vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = false
 vim.opt.relativenumber = true
+-- Undo history
+vim.opt.undodir = "~/.cache/nvim/.undo//"
 
 -- Keymaps
 --
@@ -19,8 +21,8 @@ vim.keymap.set("n", "<C-n>", "<cmd>NvimTreeToggle<cr>", { desc = "Toggle Tree" }
 -- Clipboard
 --
 vim.keymap.set({ "n", "x" }, "x", '"_x')
-vim.keymap.set({ "n", "v" }, "<C-c>", '"*y')
-vim.keymap.set({ "n", "v" }, "<C-p>", '"*p')
+vim.keymap.set({ "n", "v", "x" }, "<C-c>", '"+y')
+vim.keymap.set({ "n", "v", "x" }, "<C-p>", '"+p')
 vim.keymap.set({ "v" }, "p", '"_dP')
 
 -- Set barbar's options

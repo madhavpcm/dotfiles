@@ -5,6 +5,10 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+HISTFILE=~/.zsh_history
+HISTSIZE=1000
+SAVEHIST=1000
+
 source $HOME/antigen.zsh
 
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -41,11 +45,16 @@ typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+autoload -Uz bracketed-paste-magic
+zle -N bracketed-paste bracketed-paste-magic
+
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-completions
 antigen theme romkatv/powerlevel10k
 antigen apply
+
+zstyle ':bracketed-paste-magic' active-widgets '.self-*'
 #myexpos
 #alias xfsi="cd $HOME/myexpos/xfs-interface/ && ./xfs-interface; cd -"
 export STAGE="$HOME/myexpos/assignments/stage"
