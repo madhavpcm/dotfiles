@@ -10,6 +10,9 @@ vim.opt.expandtab = false
 vim.opt.relativenumber = true
 -- Undo history
 vim.opt.undodir = "~/.cache/nvim/.undo//"
+-- Disable netrw
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 
 -- Keymaps
 --

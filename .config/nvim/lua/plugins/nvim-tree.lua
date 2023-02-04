@@ -1,7 +1,5 @@
 vim.g.nvim_tree_gitignore = 1
 vim.g.nvim_tree_indent_markers = 1
-vim.g.nvim_tree_auto_close = 1
-vim.g.nvim_tree_auto_open = 1
 -- examples for your init.lua
 
 -- disable netrw at the very start of your init.lua (strongly advised)
@@ -16,7 +14,10 @@ vim.opt.termguicolors = true
 -- OR setup with some options
 require("nvim-tree").setup {
   sort_by = "case_sensitive",
-  ignore_buffer_on_setup = true,
+  open_on_setup = false,
+  open_on_setup_file = false,
+  ignore_buffer_on_setup = false,
+  ignore_ft_on_setup = {},
   view = {
     relativenumber = true,
     adaptive_size = true,
@@ -37,3 +38,20 @@ require("nvim-tree").setup {
     show_on_dirs = true,
   },
 }
+
+local function open_nvim_tree(data)
+  -- buffer is a directory
+  local directory = vim.fn.isdirectory(data.file) == 1
+
+  if not directory then
+    return
+  end
+
+  -- change to the directory
+  vim.cmd.cd(data.file)
+
+  -- open the tree
+  require("nvim-tree.api").tree.open()
+end
+
+vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
