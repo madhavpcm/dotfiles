@@ -92,7 +92,7 @@ require("packer").startup(function(use)
     config = "require('plugins.barbecue')",
   }
   use "itsfarseen/expos-vim-plugins"
-  use { "glepnir/dashboard-nvim", event = "BufWinEnter", config = 'require("plugins.dashboard")' }
+  use { "glepnir/dashboard-nvim", event = "VimEnter", config = 'require("plugins.dashboard")' }
   use {
     "nvim-lualine/lualine.nvim",
     requires = { "kyazdani42/nvim-web-devicons", opt = true },
