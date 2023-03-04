@@ -60,3 +60,5 @@ zstyle ':bracketed-paste-magic' active-widgets '.self-*'
 export STAGE="$HOME/myexpos/assignments/stage"
 export SPL="$HOME/myexpos/spl/spl_progs"
 export EXPL="$HOME/myexpos/expl/expl_progs"
+export _JAVA_AWT_WM_NONREPARENTING=1
+export BINDGEN_EXTRA_CLANG_ARGS="$BINDGEN_EXTRA_CLANG_ARGS -DPW_ENABLE_DEPRECATED"
