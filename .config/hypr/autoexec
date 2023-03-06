@@ -1,0 +1,17 @@
+#!/bin/bash
+#
+killall albert
+killall dunst
+killall hyprpaper
+
+
+#KdeConnect
+/usr/lib/kdeconnectd&
+#Polkit
+/usr/lib/polkit-kde-authentication-agent-1&
+#Wallpaper
+hyprpaper&
+#Launcher
+albert&
+#Notifications
+dunst&

@@ -53,8 +53,7 @@ require("packer").startup(function(use)
   use { "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" }
   use { "lukas-reineke/indent-blankline.nvim", config = 'require("plugins.indentline")', event = "BufWinEnter" }
   use {
-    "norcalli/nvim-colorizer.lua",
-    event = "BufRead",
+    "norcalli/nvim-jolorizer.lua",
   }
   use { "lewis6991/gitsigns.nvim", requires = { "nvim-lua/plenary.nvim" }, config = 'require("plugins.gitsigns")' }
   use { "simrat39/rust-tools.nvim" }

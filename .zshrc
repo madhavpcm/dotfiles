@@ -48,11 +48,6 @@ typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 autoload -Uz bracketed-paste-magic
 zle -N bracketed-paste bracketed-paste-magic
 
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle zsh-users/zsh-autosuggestions
-antigen bundle zsh-users/zsh-completions
-antigen theme romkatv/powerlevel10k
-antigen apply
 
 zstyle ':bracketed-paste-magic' active-widgets '.self-*'
 #myexpos
@@ -62,3 +57,9 @@ export SPL="$HOME/myexpos/spl/spl_progs"
 export EXPL="$HOME/myexpos/expl/expl_progs"
 export _JAVA_AWT_WM_NONREPARENTING=1
 export BINDGEN_EXTRA_CLANG_ARGS="$BINDGEN_EXTRA_CLANG_ARGS -DPW_ENABLE_DEPRECATED"
+
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle zsh-users/zsh-completions
+antigen theme romkatv/powerlevel10k
+antigen apply
