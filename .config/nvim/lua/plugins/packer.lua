@@ -53,7 +53,8 @@ require("packer").startup(function(use)
   use { "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" }
   use { "lukas-reineke/indent-blankline.nvim", config = 'require("plugins.indentline")', event = "BufWinEnter" }
   use {
-    "norcalli/nvim-jolorizer.lua",
+    "norcalli/nvim-colorizer.lua",
+    config = 'require("plugins.colorizer")',
   }
   use { "lewis6991/gitsigns.nvim", requires = { "nvim-lua/plenary.nvim" }, config = 'require("plugins.gitsigns")' }
   use { "simrat39/rust-tools.nvim" }
@@ -89,6 +90,11 @@ require("packer").startup(function(use)
     wants = "nvim-web-devicons",
     event = "BufWinEnter",
     config = "require('plugins.barbecue')",
+  }
+  use {
+    "akinsho/toggleterm.nvim",
+    tag = "*",
+    config = "require('plugins.toggleterm')",
   }
   use "itsfarseen/expos-vim-plugins"
   use { "glepnir/dashboard-nvim", event = "VimEnter", config = 'require("plugins.dashboard")' }

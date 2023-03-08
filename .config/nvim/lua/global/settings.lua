@@ -72,3 +72,9 @@ map("n", "<Space>bw", "<Cmd>BufferOrderByWindowNumber<CR>", opts)
 -- window resize
 map("n", "<C-h>", "<Cmd>vertical res -5<CR>", opts)
 map("n", "<C-l>", "<Cmd>vertical res +5<CR>", opts)
+map("n", "<C-]>", "<Cmd>ToggleTerm<CR>", opts)
+map("t", "<C-]>", "<Cmd>ToggleTerm<CR>", opts)
+
+--terminal
+-- the Ctrl+ww and Ctrl+w w keys in the TERMINAL mode to the toggleterm function
+map("t", "<C-w><C-w>", "<C-w>w", { noremap = true })

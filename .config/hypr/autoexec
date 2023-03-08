@@ -1,10 +1,13 @@
 #!/bin/bash
-#
+#killem
 killall albert
 killall dunst
 killall hyprpaper
+killall waybar
 
 
+#Waybar
+$HOME/.config/waybar/launch.sh -o vertical -s float -t catppuccin_mocha_black&
 #KdeConnect
 /usr/lib/kdeconnectd&
 #Polkit
@@ -12,6 +15,6 @@ killall hyprpaper
 #Wallpaper
 hyprpaper&
 #Launcher
-albert&
+QT_QPA_PLATFORM=xcb albert&
 #Notifications
 dunst&

@@ -138,11 +138,11 @@
   },
   "pulseaudio#audio": {
     "format": "{icon}",
-    "format-bluetooth": "{volume}% 󰂱",
-    "format-bluetooth-muted": "󰂯",
-    "format-muted": "{format_source}",
+    "format-bluetooth": "{volume}%󰂱",
+    "format-muted": "{format_source_muted}",
     "format-source": "{volume}%",
     "format-source-muted": "",
+    "format-bluetooth-muted": "󰂯",
     "format-icons": {
       "headphone": "",
       "hands-free": "󱆏",
@@ -162,6 +162,7 @@
     "format": "{format_source}",
     "format-source": "󰍬",
     "format-source-muted": "󰍭",
+    "format-muted": "{format_source_muted}",
     "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
     "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 1%+",
     "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 1%-",
@@ -195,7 +196,7 @@
     "format-on": "",
     "format-connected": "",
     "format-connected-battery": "󰂯 {device_alias} \n󰥃 {device_battery_percentage}%",
-    "on-click": "",
+    "on-click": "blueberry",
     "tooltip": true,
     "tooltip-format": "󰂯 {device_alias}\n"
   },
