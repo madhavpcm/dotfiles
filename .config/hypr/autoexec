@@ -1,11 +1,11 @@
-#!/bin/bash
+#!/bin/zsh
 #killem
 killall albert
 killall dunst
 killall hyprpaper
 killall waybar
 
-
+export WLR_RENDERER=vulkan
 #Waybar
 $HOME/.config/waybar/launch.sh -o vertical -s float -t catppuccin_mocha_black&
 #KdeConnect

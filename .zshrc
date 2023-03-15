@@ -82,6 +82,12 @@ export BINDGEN_EXTRA_CLANG_ARGS="$BINDGEN_EXTRA_CLANG_ARGS -DPW_ENABLE_DEPRECATE
 #export WAYLAND_DEBUG=1
 export MOZ_ENABLE_WAYLAND=1
 
+#no more ssd failures plz ft.kstars
+export MAKEFLAGS=-j5
+export WLR_RENDERER=vulkan
+export WLR_EGL_NO_MODIFIERS=1
+
+
 #Plugins
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-autosuggestions

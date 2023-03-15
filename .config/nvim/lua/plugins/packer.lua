@@ -71,6 +71,7 @@ require("packer").startup(function(use)
   }
 
   -- Looks and themes
+  use { "calincru/flex-bison-syntax" }
   use { "romgrk/barbar.nvim", wants = "nvim-web-devicons", config = 'require("plugins.tabline")', event = "BufWinEnter" }
   use {
     "kyazdani42/nvim-tree.lua",
