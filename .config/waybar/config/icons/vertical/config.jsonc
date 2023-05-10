@@ -87,6 +87,7 @@
       "7": "7",
       "8": "8",
       "9": "9",
+      "10": "0",
       "default": "1"
     }
   },
@@ -195,13 +196,13 @@
     "format-off": "󰂲",
     "format-on": "",
     "format-connected": "",
-    "format-connected-battery": "󰂯 {device_alias} \n󰥃 {device_battery_percentage}%",
+    "format-connected-battery": ":{device_battery_percentage}%",
     "on-click": "blueberry",
     "tooltip": true,
     "tooltip-format": "󰂯 {device_alias}\n"
   },
   "battery": {
-    "bat": "BAT0",
+    "bat": "B0",
     "states": {
       "warning": 30,
       "critical": 15

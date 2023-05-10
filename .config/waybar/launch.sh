@@ -35,6 +35,6 @@ if [[ -z $orientation || -z $style || -z $theme ]]; then
   help
 else
   killall -q waybar
-  waybar -c ~/.config/waybar/config/icons/$orientation/config.jsonc -s ~/.config/waybar/styles/$style/$theme/$orientation/style.css --log-level off
+  waybar -c ~/.config/waybar/config/icons/$orientation/config.jsonc -s ~/.config/waybar/styles/$style/$theme/$orientation/style.css --log-level on
 fi
 

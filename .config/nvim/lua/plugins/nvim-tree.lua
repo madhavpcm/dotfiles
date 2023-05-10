@@ -1,4 +1,4 @@
-vim.g.nvim_tree_gitignore = 1
+vim.g.nvim_tree_gitignore = 0
 vim.g.nvim_tree_indent_markers = 1
 -- examples for your init.lua
 
@@ -16,8 +16,6 @@ require("nvim-tree").setup {
   sort_by = "case_sensitive",
   open_on_setup = false,
   open_on_setup_file = false,
-  ignore_buffer_on_setup = false,
-  ignore_ft_on_setup = {},
   view = {
     relativenumber = true,
     adaptive_size = true,

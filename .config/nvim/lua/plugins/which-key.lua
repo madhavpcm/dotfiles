@@ -51,8 +51,8 @@ local mappings = {
     R = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
     a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
     e = { "<cmd>lua vim.diagnostic.open_float({scope='line'})<cr>", "Show line diagnostic" },
-    n = { "<cmd>lua vim.lsp.diagnostic.goto_next()<cr>", "Go to next diagnostic" },
-    N = { "<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>", "Go to previous diagnostic" },
+    n = { "<cmd>lua vim.diagnostic.goto_next()<cr>", "Go to next diagnostic" },
+    N = { "<cmd>lua vim.diagnostic.goto_prev()<cr>", "Go to previous diagnostic" },
   },
 }
 

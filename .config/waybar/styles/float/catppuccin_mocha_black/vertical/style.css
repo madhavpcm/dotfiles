@@ -22,7 +22,7 @@ window > box {
 tooltip {
   background: @black;
   border: 2px solid @kawa_7;
-  border-radius: 4;
+  border-radius: 4px;
   padding-right: 30px;
 }
 tooltip label {
@@ -31,7 +31,7 @@ tooltip label {
 }
 
 #workspaces button {
-  font-size: 16;
+  font-size: 12pt;
   background-color: transparent;
   color: @peach;
   padding-top: 2px;
@@ -334,16 +334,14 @@ tooltip label {
   color: @black;
 }
 
-/* #bluetooth.on,
-#bluetooth.connected {} */
+#bluetooth.connected {
+  color: @blue;
+  font-size: 0.9rem;
+}
 
 #bluetooth.on:hover,
 #bluetooth.connected {
   color: @blue;
-}
-#bluetooth.connected:hover {
-  background-color: @blue;
-  color: @black;
 }
 
 /* #bluetooth.discoverable {} */
