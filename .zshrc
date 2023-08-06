@@ -13,8 +13,10 @@ HISTFILE=~/.zsh_history
 HISTSIZE=1000
 SAVEHIST=1000
 
+
 #Plugin Manager
 source $HOME/antigen.zsh
+
 
 #Some exports for something which I dont remember
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -101,10 +103,12 @@ export QT_HOST_PATH=/usr/lib/qt6/bin
 export QT_ANDROID=$HOME/Qt/5.15.2/android
 
 #Plugins
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle zsh-users/zsh-autosuggestions
-antigen bundle zsh-users/zsh-completions
+
 antigen theme romkatv/powerlevel10k
+antigen bundle z-shell/zsh-navigation-tools@main
+antigen bundle zsh-users/zsh-completions
+antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle zsh-users/zsh-syntax-highlighting
 antigen apply
 
 export TERMV_API_URL=https://gist.githubusercontent.com/Roshan-R/96c859fc551527284531f59fb52f18df/raw/8c7769a13484111d98339359472174f6ae6ac889/gistfile1.txt

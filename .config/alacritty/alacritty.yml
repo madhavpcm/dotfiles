@@ -86,4 +86,5 @@ schemes:
       cyan: '#56b6c2'
       white: '#d4d4d4'
 
-colors: *dark
+import:
+  - ~/.config/alacritty/themes/themes/monokai_charcoal.yaml

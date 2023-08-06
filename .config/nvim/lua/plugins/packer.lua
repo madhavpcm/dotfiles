@@ -49,7 +49,7 @@ require("packer").startup(function(use)
   -- Code/Workflow
   --
 
-  -- Packer
+  use { "p00f/cphelper.nvim" }
   use { "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" }
   use { "lukas-reineke/indent-blankline.nvim", config = 'require("plugins.indentline")', event = "BufWinEnter" }
   use {
