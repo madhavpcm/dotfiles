@@ -8,6 +8,7 @@ vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = false
 vim.opt.relativenumber = true
+vim.opt.termguicolors = true
 -- Undo history
 vim.opt.undodir = "~/.cache/nvim/.undo//"
 -- Disable netrw
@@ -16,7 +17,6 @@ vim.g.loaded_netrwPlugin = 1
 
 -- Keymaps
 --
-
 vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>ww", "<cmd>write<cr>", { desc = "Save" })
 vim.keymap.set("n", "<C-n>", "<cmd>NvimTreeToggle<cr>", { desc = "Toggle Tree" })
@@ -62,12 +62,6 @@ map("n", "<A-c>", "<Cmd>BufferClose<CR>", opts)
 --                 :BufferCloseBuffersLeft
 --                 :BufferCloseBuffersRight
 -- Magic buffer-picking mode
-map("n", "<C-p>", "<Cmd>BufferPick<CR>", opts)
--- Sort automatically by...
-map("n", "<Space>bb", "<Cmd>BufferOrderByBufferNumber<CR>", opts)
-map("n", "<Space>bd", "<Cmd>BufferOrderByDirectory<CR>", opts)
-map("n", "<Space>bl", "<Cmd>BufferOrderByLanguage<CR>", opts)
-map("n", "<Space>bw", "<Cmd>BufferOrderByWindowNumber<CR>", opts)
 
 -- window resize
 map("n", "<C-h>", "<Cmd>vertical res -5<CR>", opts)

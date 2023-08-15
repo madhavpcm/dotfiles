@@ -84,7 +84,7 @@
     frame_width = 1.5
 
     # Defines color of the frame around the notification window.
-    frame_color = "#1CAeEC"
+    frame_color = "#89cff0"
 
     # Define a color for the separator.
     # possible values are:
@@ -343,7 +343,7 @@
     icon = ~/.config/dunst/normal.png
 
 [urgency_critical]
-    background = "#ecec22"
+    background = "#ffffbb"
     foreground = "#ffffff"
     frame_color = "#ff0000"
     icon = ~/.config/dunst/critical.png

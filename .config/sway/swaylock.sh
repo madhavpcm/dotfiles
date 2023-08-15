@@ -1,0 +1,1 @@
+mybin/swaylocklaunch.sh

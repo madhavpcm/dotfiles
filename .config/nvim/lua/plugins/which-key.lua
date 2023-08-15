@@ -2,8 +2,6 @@ local wk = require "which-key"
 
 local opts = {
   mode = "n", -- NORMAL mode
-  -- prefix: use "<leader>f" for example for mapping everything related to finding files
-  -- the prefix is prepended to every mapping part of `mappings`
   prefix = "<leader>",
   buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
   silent = true, -- use `silent` when creating keymaps
@@ -19,7 +17,6 @@ local mappings = {
     r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File", noremap = false }, -- additional options for creating the keymap
     n = { "New File" }, -- just a label. don't create any mapping
     e = "Edit File", -- same as above
-    ["1"] = "which_key_ignore", -- special label to hide it in the popup
   },
   t = {
     name = "Terminal",
@@ -54,6 +51,15 @@ local mappings = {
     n = { "<cmd>lua vim.diagnostic.goto_next()<cr>", "Go to next diagnostic" },
     N = { "<cmd>lua vim.diagnostic.goto_prev()<cr>", "Go to previous diagnostic" },
   },
+  b = {
+    name = "Buffer Commands",
+    b = { "<Cmd>BufferOrderByBufferNumber<CR>", "Order buffers by Number" },
+    d = { "<Cmd>BufferOrderByDirectory<CR>", "Order buffers by Directory" },
+    l = { "<Cmd>BufferOrderByLanguage<CR>", "Order buffers by Language" },
+    w = { "<Cmd>BufferOrderByWindowNumber<CR>", "Order buffers by window number" },
+    p = { "<Cmd>BufferPick<CR>", "Pick buffer" },
+  },
 }
+-- Sort automatically by...
 
 wk.register(mappings, opts)

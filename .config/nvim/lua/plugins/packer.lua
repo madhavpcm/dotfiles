@@ -38,6 +38,7 @@ require("packer").startup(function(use)
   use { "hrsh7th/cmp-buffer" }
   use { "hrsh7th/cmp-nvim-lsp" }
   use { "hrsh7th/cmp-nvim-lua" }
+  use { "davidmh/cspell.nvim" }
   --
   -- LSP
   --
@@ -45,6 +46,7 @@ require("packer").startup(function(use)
   use { "williamboman/mason.nvim" }
   use { "williamboman/mason-lspconfig.nvim" }
   use { "jose-elias-alvarez/null-ls.nvim" } -- LSP diagnostics and code actions
+  use { "MunifTanjim/prettier.nvim", config = 'require("plugins.prettier")' }
 
   -- Code/Workflow
   --
@@ -71,6 +73,7 @@ require("packer").startup(function(use)
   }
 
   -- Looks and themes
+  use { "nvim-tree/nvim-web-devicons", config = 'require("plugins.devicons")' }
   use { "calincru/flex-bison-syntax" }
   use { "romgrk/barbar.nvim", wants = "nvim-web-devicons", config = 'require("plugins.tabline")', event = "BufWinEnter" }
   use {
