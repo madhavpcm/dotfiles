@@ -1,0 +1,122 @@
+#!/bin/bash
+
+notify=false
+oneshot=false
+
+# Parse options
+while getopts "hon" option; do
+	case ${option} in
+	o) #For option o (oneshot)
+		oneshot=true
+		;;
+	n) #For option n (notify)
+		notify=true
+		;;
+	h) #For option h (help)
+		echo "usage: nitc-wifi [-h|o|n]"
+		echo ""
+		echo "Script to manage nitc network authentication and refresh"
+		echo ""
+		echo "options:"
+		echo -e "  -h\tshow this help message and exit"
+		echo -e "  -n\tsend a notification on network status update"
+		echo -e "  -o\trun as oneshot without refresh. will exit the script after authentication"
+		exit 0
+		;;
+	\?) #For invalid option
+		exit 0
+		;;
+	esac
+done
+
+# Get the final URL after redirection to captive portal
+# We need this because there's more than one IP that's used
+logout_url=$(curl -Ls -o /dev/null -w %{url_effective} http://0x0.st | cut -d/ -f1-3)
+
+function logout {
+	res=$(curl -s "$logout_url/logout?")
+	if [ -z "$res" ]; then
+		echo -ne "\nLogout failed"
+		return
+	fi
+	echo -ne "\nLogged out. Bye bye"
+	$notify && notify-send 'NITC Wifi' 'Logged out'
+}
+
+expressions=(
+	'cmmadhav_b200738cs:#738kawagg'
+)
+
+redir_res=$(curl -s -L http://0x0.st/)
+magic=$(echo "$redir_res" | grep magic | cut -d '"' -f6)
+
+# If magic is empty, did not reach the wifi login page
+if [ -z "$magic" ]; then
+
+	isconn=$(echo "$redir_res" | grep NULL)
+	# if the page contains NULL, then it accessed the actual webpage
+
+	if [ -z "$isconn" ]; then
+		echo "Not connected to internet."
+		$notify && notify-send 'NITC Wifi' 'Not connected to internet'
+	else
+		echo "Maybe already logged in?"
+		$notify && notify-send 'NITC Wifi' 'Maybe already logged in?'
+	fi
+	exit 0
+fi
+
+# Set seed for bash RANDOM to "$<process-id>$<epoch-time>"
+RANDOM=$$$(date +%s)
+
+# Keep trying random entries until a login succeeds
+while true; do
+
+	sel=${expressions[$RANDOM % ${#expressions[@]}]}
+
+	tuple=(${sel//:/ })
+	u=${tuple[0]}
+	p=${tuple[1]}
+
+	login_res=$(curl -s -L -d "magic=$magic" -d "username=$u" -d "password=$p" "http://0x0.st")
+
+	if [ -n "$(echo $login_res | grep 'over limit')" ]; then
+		echo "Overlimit"
+	elif [ -n "$(echo $login_res | grep 'try again')" ]; then
+		echo "Login failed $u $p"
+	elif [ -n "$(echo $login_res | grep 'To change your password')" ]; then
+		echo "Logged in"
+		notify-send 'NITC Wifi' 'Connected'
+		break
+	else
+		echo "Invalid result"
+	fi
+done
+
+if [ "$oneshot" = true ]; then
+	echo -e "\nVisit $logout_url/logout? to logout"
+	exit 0
+fi
+
+# Execute the logout function when this script exits
+trap logout EXIT
+
+timer=$(echo $login_res | awk -F 'countDownTime=' '{print $2}' | awk 'NF>0{print $1}')
+timer_total=$timer
+reauthurl=$(echo "$login_res" | grep location.href | cut -d'"' -f2)
+
+while true; do
+	echo -e "\nRe-auth timer running"
+	echo -n $timer seconds
+
+	while [ "$timer" -gt 5 ]; do
+		printf '\r%s%d seconds' "$(tput el)" "$timer"
+		timer=$(expr $timer - 1)
+		sleep 1
+	done
+
+	curl -s $reauthurl >/dev/null
+
+	# Reauthenticated. Restart timer
+	timer=$timer_total
+done
