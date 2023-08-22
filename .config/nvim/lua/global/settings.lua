@@ -10,7 +10,7 @@ vim.opt.expandtab = false
 vim.opt.relativenumber = true
 vim.opt.termguicolors = true
 -- Undo history
-vim.opt.undodir = "~/.cache/nvim/.undo//"
+--vim.opt.undodir = "~/.cache/nvim/.undo//"
 -- Disable netrw
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
@@ -72,3 +72,22 @@ map("t", "<C-]>", "<Cmd>ToggleTerm<CR>", opts)
 --terminal
 -- the Ctrl+ww and Ctrl+w w keys in the TERMINAL mode to the toggleterm function
 map("t", "<C-w><C-w>", "<C-w>w", { noremap = true })
+
+-- Undotree 
+vim.cmd[[ 
+	au BufReadPost * call ReadUndo()
+	au BufWritePost * call WriteUndo()
+	func ReadUndo()
+	  if filereadable(expand('%:h') .. '/.undodir/' .. expand('%:t'))
+		rundo %:h/.undodir/%:t
+	  endif
+	endfunc
+	func WriteUndo()
+	  let dirname = expand('%:h') .. '/.undodir'
+	  if !isdirectory(dirname)
+		call mkdir(dirname)
+	  endif
+	  wundo %:h/.undodir/%:t
+	endfunc
+]]
+

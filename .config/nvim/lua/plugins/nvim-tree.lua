@@ -17,7 +17,6 @@ require("nvim-tree").setup {
 	view = {
 		relativenumber = true,
 		adaptive_size = true,
-		mappings = {},
 	},
 	renderer = {
 		group_empty = true,
