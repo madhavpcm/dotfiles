@@ -116,8 +116,8 @@ local mappings = {
   t = {
     name = "Terminal",
     t = { ":ToggleTerm<cr>", "Split Below" },
-    f = { toggle_float, "Floating Terminal" },
-    l = { toggle_lazygit, "LazyGit" },
+    -- f = { toggle_float, "Floating Terminal" },
+    -- l = { toggle_lazygit, "LazyGit" },
   },
   p = {
     name = "Packer",

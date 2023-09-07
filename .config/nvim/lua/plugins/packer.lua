@@ -39,17 +39,19 @@ require("packer").startup(function(use)
   use { "hrsh7th/cmp-nvim-lsp" }
   use { "hrsh7th/cmp-nvim-lua" }
   use { "davidmh/cspell.nvim" }
-  --
+  use { "mfussenegger/nvim-lint" }
+
   -- LSP
   --
   use { "neovim/nvim-lspconfig" }
   use { "williamboman/mason.nvim" }
   use { "williamboman/mason-lspconfig.nvim" }
   use { "MunifTanjim/prettier.nvim", config = 'require("plugins.prettier")' }
-  use { 'mhartington/formatter.nvim', config = 'require("plugins.formatter")'}
+  use { "mhartington/formatter.nvim", config = 'require("plugins.formatter")' }
 
   -- Code/Workflow
   --
+  use { "numToStr/Comment.nvim", config = 'require("plugins.comment")' }
 
   use { "p00f/cphelper.nvim" }
   use { "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" }
@@ -71,7 +73,7 @@ require("packer").startup(function(use)
     config = 'require("plugins.telescope")',
     cmd = "Telescope",
   }
-  use {'mbbill/undotree', config = 'require("plugins.undotree")'}
+  use { "mbbill/undotree", config = 'require("plugins.undotree")' }
 
   -- Looks and themes
   use { "nvim-tree/nvim-web-devicons", config = 'require("plugins.devicons")' }

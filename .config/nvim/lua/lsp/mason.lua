@@ -1,11 +1,10 @@
 local servers = {
-	"lua_ls",
-	"jsonls",
-	"pyright",
-	"clangd",
-	"rust_analyzer",
-	"cmake",
-	"bashls"
+  "lua_ls",
+  "jsonls",
+  "pyright",
+  "clangd",
+  "rust_analyzer",
+  "cmake",
 }
 -- Linters
 
@@ -31,6 +30,7 @@ require("mason-lspconfig").setup {
 
 local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
 if not lspconfig_status_ok then
+  print "lspconfig not found"
   return
 end
 
@@ -39,7 +39,6 @@ local opts = {}
 for _, server in pairs(servers) do
   opts = {
     on_attach = require("lsp.handlers").on_attach,
-
   }
 
   server = vim.split(server, "@")[1]

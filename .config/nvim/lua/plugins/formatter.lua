@@ -59,6 +59,15 @@ local formatterConfig = {
   },
   cmake = {
     require("formatter.filetypes.cmake").cmakeformat,
+	function()
+		return {
+			exe = "cmake-format",
+			args = {
+				"-c ~/.config/nvim/cmake-format.yaml"
+			},
+			stdin = true,
+		}
+	end
   },
 
   ["*"] = {

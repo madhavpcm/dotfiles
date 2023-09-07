@@ -14,7 +14,7 @@
 		"custom/audiorec"
 	],
 	"modules-center": [
-		"mpd"
+		"sway/window",
 	],
 	"modules-right": [
 		"tray",

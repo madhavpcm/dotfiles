@@ -25,7 +25,7 @@ export XDG_CACHE_HOME="$XDG_CONFIG_HOME/cache"
 
 #The holy path
 export PATH="$HOME/bin:/usr/local/bin:/usr/bin:/usr/sbin:/bin:/$HOME/.local/bin:$HOME/mybin:/home/madhavpcm/.config/local/share/gem/ruby/3.0.0/bin:/home/madhavpcm/.cargo/bin:$PATH"
-export PATH="/usr/local/qt515android/bin:$PATH"
+export PATH="/usr/local/qt515android/bin:$HOME/.config/local/share/nvim/mason/bin:$PATH"
 
 
 #Zoxide and z
