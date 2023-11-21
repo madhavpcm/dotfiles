@@ -1,3 +1,4 @@
+pokemon-colorscripts -r 1-3 --no-title
 #Disable beep if on tty
 if [[ -n "$DISPLAY" ]]; then
 else
@@ -42,6 +43,7 @@ PERL_MM_OPT="INSTALL_BASE=/home/madhavpcm/perl5"; export PERL_MM_OPT;
 alias config='/usr/bin/git --git-dir=/home/madhavpcm/.cfg/ --work-tree=/home/madhavpcm/'
 alias indentmesa='indent -br -i3 -npcs --no-tabs'
 alias lsd=logo-ls
+alias rs='rsync -Pravdtze '
 #
 #For X11 Lock
 alias lockctl='/usr/bin/betterlockscreen -l'
@@ -103,6 +105,7 @@ export QT_HOST_PATH=/usr/lib/qt6/bin
 export QT_ANDROID=$HOME/Qt/5.15.2/android
 
 #Plugins
+#
 
 antigen theme romkatv/powerlevel10k
 antigen bundle z-shell/zsh-navigation-tools@main
@@ -110,5 +113,6 @@ antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen apply
+
 
 export TERMV_API_URL=https://gist.githubusercontent.com/Roshan-R/96c859fc551527284531f59fb52f18df/raw/8c7769a13484111d98339359472174f6ae6ac889/gistfile1.txt

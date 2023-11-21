@@ -32,14 +32,21 @@ require("packer").startup(function(use)
   }
 
   -- Completions
-  use { "hrsh7th/nvim-cmp", config = 'require("plugins.nvim-cmp")' }
-  use { "hrsh7th/cmp-path" }
-  use { "hrsh7th/cmp-cmdline" }
-  use { "hrsh7th/cmp-buffer" }
-  use { "hrsh7th/cmp-nvim-lsp" }
-  use { "hrsh7th/cmp-nvim-lua" }
-  use { "davidmh/cspell.nvim" }
-  use { "mfussenegger/nvim-lint" }
+  use {
+    "hrsh7th/nvim-cmp",
+    config = 'require("plugins.nvim-cmp")',
+    requires = {
+      { "saadparwaiz1/cmp_luasnip", after = "LuaSnip" },
+      { "hrsh7th/cmp-nvim-lsp", after = "cmp_luasnip" },
+      { "hrsh7th/cmp-nvim-lua", after = "cmp-nvim-lsp" },
+      { "hrsh7th/cmp-path", after = "cmp-nvim-lua" },
+  	  { "hrsh7th/cmp-cmdline" , after="cmp-path"},
+      { "f3fora/cmp-spell", after = "cmp-cmdline" },
+      { "hrsh7th/cmp-buffer", after = "cmp-spell" },
+      { "hrsh7th/cmp-omni", after = "cmp-buffer" },
+      { "mfussenegger/nvim-lint" ,after = "cmp-omni"} ,
+    },
+  }
 
   -- LSP
   --
@@ -55,7 +62,7 @@ require("packer").startup(function(use)
 
   use { "p00f/cphelper.nvim" }
   use { "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" }
-  use { "lukas-reineke/indent-blankline.nvim", config = 'require("plugins.indentline")', event = "BufWinEnter" }
+  use { "lukas-reineke/indent-blankline.nvim", config = 'require("plugins.indentline")', event = "BufReadPost" }
   use {
     "norcalli/nvim-colorizer.lua",
     config = 'require("plugins.colorizer")',
@@ -64,11 +71,11 @@ require("packer").startup(function(use)
   use { "simrat39/rust-tools.nvim" }
   use { "windwp/nvim-autopairs", config = 'require("plugins.autopairs")' }
   use { "sakhnik/nvim-gdb" }
-  use { "L3MON4D3/LuaSnip" }
+  use { "L3MON4D3/LuaSnip", before = "nvim-cmp" }
   use { "folke/which-key.nvim", config = 'require("plugins.which-key")' }
   use {
     "nvim-telescope/telescope.nvim",
-    tag = "0.1.0",
+    tag = "0.1.4",
     requires = { { "nvim-lua/plenary.nvim" } },
     config = 'require("plugins.telescope")',
     cmd = "Telescope",
